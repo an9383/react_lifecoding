@@ -121,7 +121,6 @@ function App() {
           }
         }
         setTopics(newTopics);
-        setMode('WELCOME');
       }} /></li>
     </>
   } else if(mode === 'CREATE') {
