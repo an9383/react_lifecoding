@@ -43,6 +43,23 @@ function Article(props) {
   )
 }
 
+function Create() {
+  return (
+    <article>
+      <h2>Create</h2>
+      <form onSubmit={event => {
+        event.preventDefault();
+        const title = event.target.title.value;
+        const body = event.target.body.value;
+      }}>
+        <p><input type="text" name="title" placeholder="title" /></p>
+        <p><textarea name="body" placeholder="body"></textarea></p>
+        <p><input type="submit" value="Create" /></p>
+      </form>
+    </article>
+  )
+}
+
 function App() {
   const [mode, setMode] = useState('WELCOME');
   const [id, setId] = useState(null);
@@ -65,6 +82,10 @@ function App() {
       }
     }
     content = <Article title={title} body={body}></Article>
+  } else if(mode === 'CREATE') {
+    content = <Create onCreate={(title,body)=>{
+
+    }}></Create>
   }
   return (
     <div className="App">
